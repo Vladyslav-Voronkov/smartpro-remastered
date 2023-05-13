@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart PROдажі</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- библиотека AOS для анимаций при скролле -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="flex justify-between items-center px-20 py-5 border-b mb-5">
+      <img src="img/logo.png" alt="" />
+      <nav>
+        <ul class="hidden lg:flex lg:justify-between items-center">
+          <li class="active cursor-pointer">Початок</li>
+          <li class="mx-5 cursor-pointer hover:text-[#2E65F3] duration-300">
+            Склад
+          </li>
+          <li class="cursor-pointer hover:text-[#2E65F3] duration-300">Каса</li>
+          <li class="mx-5 cursor-pointer hover:text-[#2E65F3] duration-300">
+            Доставка
+          </li>
+          <li class="cursor-pointer hover:text-[#2E65F3] duration-300">
+            Контрагенти
+          </li>
+          <li class="mx-5 cursor-pointer hover:text-[#2E65F3] duration-300">
+            Рахунки
+          </li>
+          <li class="cursor-pointer hover:text-[#2E65F3] duration-300">
+            Аккаунт
+          </li>
+        </ul>
+      </nav>
+      <img width="50" class="rounded-full" src="img/avatar.jpg" alt="avatar" />
+
+      <div class="lg:hidden flex flex-col justify-between items-center burger-menu ">
+        <div class="w-10 h-1 bg-[#2E65F3] rounded-full burgerfirst"></div>
+        <div class="w-7 h-1 bg-[#2E65F3] rounded-full mt-2 burgersecond"></div>
+        <div class="w-5 h-1 bg-[#2E65F3] rounded-full mt-2 burgerthird"></div>
+      </div>
+    </header>
+
+    <!-- preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader__container
+        flex flex-col justify-center items-center
+        w-screen h-screen
+        bg-white 
+      ">
+        <img src="img/logo.png" alt="" />
+        <div class="preloader-circle mt-2"></div>
+      </div>
+    </div>
+
+
+    <!-- message boxes -->
+    <div id="message" class="msgboxes"></div>
+
+    <h1 class="mx-10 text-xl font-bold">Статистика</h1>
+
+    <!-- Выбор времени показа статистики -->
+    <div class="flex justify-between w-1/3 items-center mx-10 my-5">
+      <div class="flex items-center">
+        <h1 class="mr-5">Період:</h1>
+        <select
+          class="border rounded-md p-2 hover:bg-gray-100 duration-100"
+          name="time"
+          id="time"
+        >
+          <option id="today__select" value="today">Сьогодні</option>
+          <option id="yesterday__select" value="yesterday">Вчора</option>
+          <option id="tomorrow__select" value="week">Тиждень</option>
+          <option id="month__select" value="month">Місяць</option>
+          <option id="year__select" value="year">Рік</option>
+          <option id="all_select" value="all">Все</option>
+        </select>
+      </div>
+      <!-- Выбор конкретной даты в период с ... по ... -->
+      <div class="flex items-center">
+        <input
+          class="border rounded-md p-2 hover:bg-gray-100 duration-100"
+          type="date"
+          name="date"
+          id="date_from"
+        />
+        <input
+          class="border rounded-md p-2 hover:bg-gray-100 duration-100 ml-5"
+          type="date"
+          name="date"
+          id="date_to"
+        />
+      </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="flex justify-between items-center mx-10 my-5">
+      <!-- Надходження -->
+      <div data-aos="fade-up" data-aos-duration="200" class="border rounded-md p-5 w-1/5">
+        <!-- Назва -->
+        <div class="flex">
+          <img
+            class="mr-1"
+            src="svg/arrow-circle-up.svg"
+            alt="arrow-circle-up"
+          />
+          <h1>Надходження</h1>
+        </div>
+        <!-- Цифри -->
+        <div>
+          <h1 class="mt-2 font-bold text-xl">0.00 грн</h1>
+        </div>
+        <!-- Кнопка "Деталі" -->
+        <div class="mt-2">
+          <button onclick="test()"
+            class="w-full rounded-sm border border-md p-2 hover:bg-gray-100 duration-100"
+          >
+            Деталі
+          </button>
+        </div>
+      </div>
+
+      <!-- Витрати -->
+      <div data-aos="fade-up" data-aos-duration="300" class="border rounded-md p-5 w-1/5 mx-5">
+        <!-- Назва -->
+        <div class="flex">
+          <img
+            class="mr-1"
+            src="svg/arrow-circle-down.svg"
+            alt="arrow-circle-down"
+          />
+          <h1>Витрати</h1>
+        </div>
+        <!-- Цифри -->
+        <div>
+          <h1 class="mt-2 font-bold text-xl">0.00 грн</h1>
+        </div>
+        <!-- Кнопка "Деталі" -->
+        <div class="mt-2">
+          <button
+            class="w-full rounded-sm border border-md p-2 hover:bg-gray-100 duration-100"
+          >
+            Деталі
+          </button>
+        </div>
+      </div>
+
+      <!-- Витрати -->
+      <div data-aos="fade-up" data-aos-duration="400" class="border rounded-md p-5 w-1/5">
+        <!-- Назва -->
+        <div class="flex">
+          <img class="mr-1" src="svg/cash.svg" alt="cash" />
+          <h1>Прибутки</h1>
+        </div>
+        <!-- Цифри -->
+        <div>
+          <h1 class="mt-2 font-bold text-xl">0.00 грн</h1>
+        </div>
+        <!-- Кнопка "Деталі" -->
+        <div class="mt-2">
+          <button
+            class="w-full rounded-sm border border-md p-2 hover:bg-gray-100 duration-100"
+          >
+            Деталі
+          </button>
+        </div>
+      </div>
+
+      <!-- Продано товарів -->
+      <div data-aos="fade-up" data-aos-duration="500" class="border rounded-md p-5 w-1/5 mx-5">
+        <!-- Назва -->
+        <div class="flex">
+          <img
+            class="mr-1"
+            src="svg/chart-square-bar.svg"
+            alt="chart-square-bar"
+          />
+          <h1>Продано товарів</h1>
+        </div>
+        <!-- Цифри -->
+        <div>
+          <h1 class="mt-2 font-bold text-xl">0.00 грн</h1>
+        </div>
+        <!-- Кнопка "Деталі" -->
+        <div class="mt-2">
+          <button
+            class="w-full rounded-sm border border-md p-2 hover:bg-gray-100 duration-100"
+          >
+            Деталі
+          </button>
+        </div>
+      </div>
+
+      <!-- Повернень та обмінів -->
+      <div data-aos="fade-up" data-aos-duration="600" class="border rounded-md p-5 w-1/5">
+        <!-- Назва -->
+        <div class="flex">
+          <img class="mr-1" src="svg/reply.svg" alt="reply" />
+          <h1>Повернення та обміни</h1>
+        </div>
+        <!-- Цифри -->
+        <div>
+          <h1 class="mt-2 font-bold text-xl">0.00 грн</h1>
+        </div>
+        <!-- Кнопка "Деталі" -->
+        <div class="mt-2">
+          <button
+            class="w-full rounded-sm border border-md p-2 hover:bg-gray-100 duration-100"
+          >
+            Деталі
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- chart -->
+    <div class="mx-10 w-1/3">
+      <div
+        id="chart"
+        data-color="#2E65F3"
+        class="chart flex flex-col border-2 rounded-md p-5 "
+      >
+        <h1 class="font-bold text-[#232325]">
+          Рейтинг касирів
+        </h1>
+      </div>
+    </div>
+
+    <script>
+      AOS.init();
+      var data = [
+        { name: "Полина", value: 150 },
+        { name: "Вика", value: 50 },
+        { name: "Катя", value: 100 },
+      ];
+    </script>
+    <script src="scripts/smartpro-charts.js"></script>
+    <script src="scripts/smartpro-msgboxes.js"></script>
+    <script src="scripts/smartpro-burgerMenu.js"></script>
+    <script src="scripts/smartpro-preloader.js"></script>
+    <script>
+
+      function test(){
+        createMessage("Сообщение", "Допустим, какая-то операция выполнена успешно");
+        return("Spawned message box")
+    };
+    </script>
+  </body>
+</html>

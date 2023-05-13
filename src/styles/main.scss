@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+* {
+  font-family: "Inter", sans-serif !important;
+}
+
+// Активный объект в меню
+.active {
+  color: #2e65f3;
+}
+
+// Подчеркивание активного объекта в меню
+.active::after {
+  //underline 2E65F3
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #2e65f3;
+  margin-top: 5px;
+}
+
+// Стандартные стили бара в графике
+.chart__bar {
+  height: 40px !important;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 300ms;
+  max-width: 0;
+  opacity: 0;
+  animation: chart__bar 1s ease-in-out forwards;
+  @keyframes chart__bar {
+    to {
+      max-width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.msgboxes{
+ position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+
+.messagebox {
+  margin-bottom: 20px;
+  width: 300px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: messagebox 0.3s ease-in-out forwards;
+  transition: 300ms;
+  &--message {
+    color: black;
+  }
+  &--alert {
+    color: rgb(155, 118, 48);
+  }
+  &--error {
+    color: red;
+  }
+  @keyframes messagebox {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// при наведении на класс burger-menu изменяется цвет объекта с классом burgerfirst burgersecond и burgerthird
+.burger-menu:hover .burgerfirst,
+.burger-menu:hover .burgersecond,
+.burger-menu:hover .burgerthird {
+  width: 50px;
+  transition: 300ms;
+};
+
+.burger-menu {
+  cursor: pointer;
+}
+
+.burgerfirst,
+.burgersecond,
+.burgerthird {
+  width: 40px;
+  height: 5px;
+  background-color: #2e65f3;
+  transition: 300ms;
+}
+
+// Создай анимацию keyframes которая превращает три полоски в крестик
+// При нажатии на бургер меню, полоски превращаются в крестик
+
+.burger-menu--active .burgerfirst {
+  transform: rotate(45deg) translate(7px, 7px);
+  transition: 300ms;
+}
+
+.burger-menu--active .burgersecond {
+  opacity: 0;
+  transition: 300ms;
+}
+
+.burger-menu--active .burgerthird {
+  transform: rotate(-45deg) translate(7px, -7px);
+  transition: 300ms;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: 300ms;
+}
+
+.preloader-circle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid #2e65f3;
+  border-top-color: transparent;
+  animation: preloader-circle 1s linear infinite;
+  @keyframes preloader-circle {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.preloader--hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+}
