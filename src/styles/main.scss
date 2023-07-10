@@ -8,7 +8,7 @@
 .active {
   color: #2e65f3;
 }
-
+ 
 // Подчеркивание активного объекта в меню
 .active::after {
   //underline 2E65F3
@@ -16,7 +16,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #2e65f3;
+  background-color: #6a94fe;
   margin-top: 5px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .msgboxes{
- position: fixed;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 100;
@@ -69,7 +69,8 @@
     color: rgb(155, 118, 48);
   }
   &--error {
-    color: red;
+    background-color: #FFDBDB;
+    color: #F32D2D;
   }
   @keyframes messagebox {
     to {
@@ -80,26 +81,16 @@
 }
 
 // при наведении на класс burger-menu изменяется цвет объекта с классом burgerfirst burgersecond и burgerthird
-.burger-menu:hover .burgerfirst,
-.burger-menu:hover .burgersecond,
-.burger-menu:hover .burgerthird {
-  width: 50px;
-  transition: 300ms;
-};
 
+ 
 .burger-menu {
   cursor: pointer;
 }
 
-.burgerfirst,
-.burgersecond,
-.burgerthird {
+.burger--opened{
   width: 40px;
-  height: 5px;
-  background-color: #2e65f3;
-  transition: 300ms;
 }
-
+  
 // Создай анимацию keyframes которая превращает три полоски в крестик
 // При нажатии на бургер меню, полоски превращаются в крестик
 
@@ -151,4 +142,4 @@
   opacity: 0;
   visibility: hidden;
   transition: 300ms;
-}
+} 

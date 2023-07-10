@@ -1,20 +1,22 @@
-// Лень комменты писать, но вроде все понятно, допишу потом как-то
+// Система всплывающих окон 
 const message = document.getElementById("message");
 
-const messageDefault = `<div class='messagebox messagebox--message font-bold'>
-        <div class='flex justify-between items-center'>
-          <h1 class=''>Message</h1>
-          <button><img src='svg/x-circle.svg' alt='x-circle' /></button>
-        </div>
-        <div class='font-thin mt-2'>
-          <span
-            >Пробное всплывающее окно о совершении какого-либо действия. Оно
-            предназначено для замены ранее используемых Alert-ов в коде.
-            Содержит вариации 'message' 'alert' и 'error'</span
-          >
-        </div>
-      </div>`;
 
+// Уже не используется, оставил на всякий случай
+// const messageDefault = `<div class='messagebox messagebox--message font-bold'>
+//         <div class='flex justify-between items-center'>
+//           <h1 class=''>Message</h1>
+//           <button><img src='svg/x-circle.svg' alt='x-circle' /></button>
+//         </div>
+//         <div class='font-thin mt-2'>
+//           <span
+//             >Пробное всплывающее окно о совершении какого-либо действия. Оно
+//             предназначено для замены ранее используемых Alert-ов в коде.
+//             Содержит вариации 'message' 'alert' и 'error'</span
+//           >
+//         </div>
+//       </div>`;
+ 
 // create message
 const createMessage = (type, text) => {
   const messageBox = document.createElement("div");
@@ -38,3 +40,4 @@ const createMessage = (type, text) => {
     message.removeChild(messageBox); 
   });
 };
+ 
